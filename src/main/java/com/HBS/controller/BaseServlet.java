@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,22 +15,23 @@ public class BaseServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String pathInfo = request.getPathInfo();
-		RequestDispatcher dispatcher = null;
+		String pathInfo = request.getPathInfo();		
 		PrintWriter writer = response.getWriter();
+		writer.println(pathInfo);
 		if (pathInfo == null) {
-			writer.println("inside hotel servlet");
-//			dispatcher = request.getRequestDispatcher("/HotelsServlet.java");
-//			writer.println(dispatcher);
+			ServletContext context= getServletContext();
+			RequestDispatcher rd= context.getRequestDispatcher("/hotelsDetails");
+			rd.forward(request, response);
+			
 
 		} else {
-			writer.println("inside specific hotel servlet");
-//			dispatcher = request.getRequestDispatcher("/SpecificHotelServlet.java");
-//			writer.println(dispatcher);
+			ServletContext context= getServletContext();
+			RequestDispatcher rd= context.getRequestDispatcher("/specificHotelDetails");
+			rd.forward(request, response);
 
 		}
 
-		dispatcher.forward(request, response);
+		
 
 	}
 
