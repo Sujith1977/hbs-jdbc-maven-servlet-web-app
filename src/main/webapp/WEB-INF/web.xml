@@ -1,44 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
-		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
-         version="3.1">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>HotelBookingSystemWebApp</display-name>
+  
   <servlet>
-    <description></description>
-    <display-name>BaseServlet</display-name>
-    <servlet-name>BaseServlet</servlet-name>
-    <servlet-class>com.HBS.controller.BaseServlet</servlet-class>
-  </servlet>  
-  <servlet>
-    <description></description>
-    <display-name>HotelsServlet</display-name>
-    <servlet-name>HotelsServlet</servlet-name>
-    <servlet-class>com.HBS.controller.HotelsServlet</servlet-class>
+  	<servlet-name>HotelBaseServlet</servlet-name>
+  	<servlet-class>com.HBS.controller.HotelBaseServlet</servlet-class>
   </servlet>
+  
   <servlet>
-    <description></description>
-    <display-name>SpecificHotelServlet</display-name>
-    <servlet-name>SpecificHotelServlet</servlet-name>
-    <servlet-class>com.HBS.controller.SpecificHotelServlet</servlet-class>
+  	<servlet-name>GetAndPostAHotelServlet</servlet-name>
+  	<servlet-class>com.HBS.controller.GetAndPostAHotelServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>BaseServlet</servlet-name>
-    <url-pattern>/hotels/*</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>BaseServlet</servlet-name>
-    <url-pattern>/hotels</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>HotelsServlet</servlet-name>
-    <url-pattern>/hotelsDetails</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>SpecificHotelServlet</servlet-name>
-    <url-pattern>/specificHotelDetails</url-pattern>
+  	<servlet-name>HotelBaseServlet</servlet-name>
+  	<url-pattern>/hotel/*</url-pattern>
   </servlet-mapping>
   
+  <servlet-mapping>
+  	<servlet-name>GetAndPostAHotelServlet</servlet-name>
+  	<url-pattern>/getAHotel</url-pattern>
+  </servlet-mapping>
 </web-app>
